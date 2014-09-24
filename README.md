@@ -34,19 +34,19 @@ grunt.initConfig({
         password : 'password',  //optional
         stopOnError : false,  //optional
         collections : [
-          { 
-            name : 'user', 
-            type : 'json', 
-            file : 'collection/users.json', 
+          {
+            name : 'user',
+            type : 'json',
+            file : 'collection/users.json',
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional
-          }, 
-          { 
-            name : 'media', 
-            type :'json', 
-            file : 'collection/media.json', 
-            jsonArray : true, 
+          },
+          {
+            name : 'media',
+            type :'json',
+            file : 'collection/media.json',
+            jsonArray : true,
             upsert : true,
             drop : true
           }
@@ -73,10 +73,12 @@ Specifies a password to authenticate to the MongoDB instance.
 Forces mongoimport to halt the import operation at the first error rather than continuing the operation despite errors.
 
 
+### collection.db
+Specifies the database in which the collection resides. Overrides options.db if both are present.
 ### collection.name
 Specifies the name of the collection for mongoimport to import.
 ### collection.type
-json|csv|tsv Declare the type of export format to import 
+json|csv|tsv Declare the type of export format to import
 ### collection.file
 Specify the location of a file containing the data to import.
 ### collection.fields

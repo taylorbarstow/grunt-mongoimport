@@ -5,17 +5,18 @@ module.exports = function(grunt) {
 
   var done = this.async();
   var options = this.options();
-  
+
   async.eachSeries(options.collections, function(collection, callback){
     var args = [];
 
-    if (options.db) args.push('--db=' + options.db);
+    if (options.db && !collection.db) args.push('--db=' + options.db);
     if (options.host) args.push('--host=' + options.host);
     if (options.port) args.push('--port=' + options.port);
     if (options.username) args.push('--username=' + options.username);
     if (options.password) args.push('--password=' + options.password);
     if (options.stopOnError) args.push('--stopOnError');
 
+    if (collection.db) args.push('--db=' + collection.db);
     if (collection.name) args.push('--collection=' + collection.name);
     if (collection.type) args.push('--type=' + collection.type);
     if (collection.type === 'csv' || collection.type === 'tsv') {
